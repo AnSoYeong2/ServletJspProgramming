@@ -1,12 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>ServletJspProgramming</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+  <!-- ContextLoaderListener 설정 -->
+    <listener>
+  	<listener-class>com.mycompany.web.contextlistener.ContextLoaderListener</listener-class>
+  	</listener>
+  	<context-param>
+  		<param-name>contextConfigLogation</param-name>
+  		<param-value>/WEB-INF/applicationContext.xml</param-value>
+  	</context-param>
+  	
+  
+  <!-- CharacterEncodingFilter 설정 -->
+  <filter>
+  	<filter-name>characterEncodingFilter</filter-name>
+  	<filter-class>com.mycompany.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  <!-- /*은 앞으로 모든 요청은 이필터를 통해서 가야함을 의미한다. -->
+  	<filter-name>characterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  	<servlet>
+  		<servlet-name>dispatcher1</servlet-name>
+  		<servlet-class>com.mycompany.web.servlet.DispatcherServlet1</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>dispatcher1</servlet-name>
+  		<url-pattern>/dispatcher1</url-pattern>
+  	</servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>dispatcher2</servlet-name>
+  	
+    <!-- 
+  	<servlet-class>com.mycompany.web.servlet.DispatcherServlet1</servlet-class>
+  	 <xml은 정해진 순서가 있어 그건 schemaLocation에 들어있는데 그걸 볼 필요는 없어 여기서는 init-param이 load-on-startup보다 위에 있어야해 >
+  	<init-param><! 초기화 할 때 변수 명과 변수 값을 줄께 이거를 서블릿에서 사용해 >
+  		<param-name>x</param-name> <! 서블릿한테 어떤 값을 받아오고 싶다면 이렇게 값을 주고 .java파일에서 매개값을 통해 받아 >
+  		<param-value>100</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>y</param-name>
+  		<param-value>200</param-value>
+  	</init-param>
+   -->
+	
+	
+	
+	<servlet-class>com.mycompany.web.servlet.DispatcherServlet2</servlet-class>
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/servletContext.xml</param-value>
+	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+  	<servlet-name>dispatcher2</servlet-name>
+  	<url-pattern>/dispatcher2</url-pattern>
+  </servlet-mapping>
+  
+  
+  	<servlet>
+  		<servlet-name>dispatcher3</servlet-name>
+  		<servlet-class>com.mycompany.web.servlet.DispatcherServlet3</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>dispatcher3</servlet-name>
+  		<url-pattern>/dispatcher3</url-pattern>
+  	</servlet-mapping>
+  	
+  	
+  	<servlet>
+  		<servlet-name>dispatcher4</servlet-name>
+  		<servlet-class>com.mycompany.web.servlet.DispatcherServlet4</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>dispatcher4</servlet-name>
+  		<url-pattern>/dispatcher4</url-pattern>
+  	</servlet-mapping>
+  	
+  	
+  	<servlet>
+  		<servlet-name>dispatcher5</servlet-name>
+  		<servlet-class>com.mycompany.web.servlet.DispatcherServlet5</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>dispatcher5</servlet-name>
+  		<url-pattern>/dispatcher5</url-pattern>
+  	</servlet-mapping>
+ 
+ 
+ <servlet>
+  		<servlet-name>dispatcher6</servlet-name>
+  		<servlet-class>com.mycompany.web.servlet.DispatcherServlet6</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>dispatcher6</servlet-name>
+  		<url-pattern>/dispatcher6</url-pattern>
+  	</servlet-mapping>
+  	
+  	 <servlet>
+  		<servlet-name>dispatcher7</servlet-name>
+  		<servlet-class>com.mycompany.web.servlet.DispatcherServlet7</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>dispatcher7</servlet-name>
+  		<url-pattern>/dispatcher7</url-pattern>
+  	</servlet-mapping>
+  	
+  	 <servlet>
+  		<servlet-name>dispatcher8</servlet-name>
+  		<servlet-class>com.mycompany.web.servlet.DispatcherServlet8</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>dispatcher8</servlet-name>
+  		<url-pattern>/dispatcher8</url-pattern>
+  	</servlet-mapping>
+  
 </web-app>
+
+
